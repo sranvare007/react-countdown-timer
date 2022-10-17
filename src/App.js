@@ -30,17 +30,25 @@ function App() {
           <AiFillPlayCircle
             className={`h-16 w-16 mt-8 cursor-pointer text-white`}
             onClick={() => {
-              setMilliseconds(
-                hoursInput * 60 * 60 * 1000 +
-                  minutesInput * 60 * 1000 +
-                  secondsInput * 1000
-              );
-              setStartTimer(true);
+              if (
+                parseInt(hoursInput) > 0 ||
+                parseInt(minutesInput) > "00" ||
+                parseInt(secondsInput) > "00"
+              ) {
+                setMilliseconds(
+                  hoursInput * 60 * 60 * 1000 +
+                    minutesInput * 60 * 1000 +
+                    secondsInput * 1000
+                );
+                setStartTimer(true);
+              }
             }}
           />
         </div>
       )}
-      {startTimer && <TimerView timerVal={milliseconds} />}
+      {startTimer && (
+        <TimerView timerVal={milliseconds} setStartTimer={setStartTimer} />
+      )}
     </div>
   );
 }
