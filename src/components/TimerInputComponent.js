@@ -9,7 +9,9 @@ export default function TimerInputComponent({
   setSecondsInput,
 }) {
   return (
-    <div className={`w-full flex flex-row items-center justify-between`}>
+    <div
+      className={`w-full flex flex-row gap-x-6 items-center justify-between`}
+    >
       <input
         type={"number"}
         value={hoursInput}
@@ -20,7 +22,7 @@ export default function TimerInputComponent({
             setHoursInput(e.target.value);
           }
         }}
-        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4 shadow-3xl`}
+        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4`}
       />
       <input
         type={"number"}
@@ -32,7 +34,7 @@ export default function TimerInputComponent({
             setMinutesInput(e.target.value);
           }
         }}
-        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4 shadow-3xl`}
+        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4`}
       />
       <input
         type={"number"}
@@ -44,7 +46,7 @@ export default function TimerInputComponent({
             setSecondsInput(e.target.value);
           }
         }}
-        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4 shadow-3xl`}
+        className={`border border-[#B2B2B2] h-20 w-20 rounded-md text-4xl pl-4`}
       />
     </div>
   );

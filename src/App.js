@@ -13,37 +13,47 @@ function App() {
   const [milliseconds, setMilliseconds] = useState(0);
   return (
     <div
-      className={`h-screen w-screen flex flex-col justify-center items-center no-scrollbar bg-black`}
+      className={`h-screen w-screen flex flex-col justify-center items-center no-scrollbar bg-[#e3edf7]`}
     >
       {!startTimer && (
-        <div
-          className={`flex flex-col items-center w-7/12 md:w-1/4 px-6 py-6 border border-white rounded-md`}
-        >
-          <TimerInputComponent
-            hoursInput={hoursInput}
-            setHoursInput={setHoursInput}
-            minutesInput={minutesInput}
-            setMinutesInput={setMinutesInput}
-            secondsInput={secondsInput}
-            setSecondsInput={setSecondsInput}
-          />
-          <AiFillPlayCircle
-            className={`h-16 w-16 mt-8 cursor-pointer text-white`}
-            onClick={() => {
-              if (
-                parseInt(hoursInput) > 0 ||
-                parseInt(minutesInput) > "00" ||
-                parseInt(secondsInput) > "00"
-              ) {
-                setMilliseconds(
-                  hoursInput * 60 * 60 * 1000 +
-                    minutesInput * 60 * 1000 +
-                    secondsInput * 1000
-                );
-                setStartTimer(true);
-              }
-            }}
-          />
+        <div className={`relative h-[500px] w-[500px] rounded-full`}>
+          <div
+            className={`h-[500px] w-[500px] rounded-full p-[16px] shadow-outer bg-gradient-to-r from-purple-500 to-pink-500`}
+          >
+            <div
+              className={`flex justify-center items-center h-[436px] w-[436px] rounded-full bg-[#e3edf7] shadow-inner`}
+            >
+              <div
+                className={`flex flex-col items-center justify-center font-extrabold`}
+              >
+                <TimerInputComponent
+                  hoursInput={hoursInput}
+                  setHoursInput={setHoursInput}
+                  minutesInput={minutesInput}
+                  setMinutesInput={setMinutesInput}
+                  secondsInput={secondsInput}
+                  setSecondsInput={setSecondsInput}
+                />
+                <AiFillPlayCircle
+                  className={`h-16 w-16 mt-8 cursor-pointer text-white shadow-outer rounded-full`}
+                  onClick={() => {
+                    if (
+                      parseInt(hoursInput) > 0 ||
+                      parseInt(minutesInput) > "00" ||
+                      parseInt(secondsInput) > "00"
+                    ) {
+                      setMilliseconds(
+                        hoursInput * 60 * 60 * 1000 +
+                          minutesInput * 60 * 1000 +
+                          secondsInput * 1000
+                      );
+                      setStartTimer(true);
+                    }
+                  }}
+                />
+              </div>
+            </div>
+          </div>
         </div>
       )}
       {startTimer && (

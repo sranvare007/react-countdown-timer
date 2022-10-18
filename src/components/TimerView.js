@@ -72,7 +72,7 @@ export default function TimerView(props) {
       >
         {!isTimerPaused && (
           <AiFillPauseCircle
-            className={`h-16 w-16 text-white cursor-pointer`}
+            className={`h-16 w-16 text-white cursor-pointer shadow-outer rounded-full`}
             onClick={() => {
               setIsTimerPaused(!isTimerPaused);
             }}
@@ -80,14 +80,14 @@ export default function TimerView(props) {
         )}
         {isTimerPaused && (
           <AiFillPlayCircle
-            className={`h-16 w-16 text-white cursor-pointer`}
+            className={`h-16 w-16 text-white cursor-pointer shadow-outer rounded-full`}
             onClick={() => {
               setIsTimerPaused(!isTimerPaused);
             }}
           />
         )}
         <BsStopCircleFill
-          className={`h-14 w-14 text-white cursor-pointer`}
+          className={`h-14 w-14 text-white cursor-pointer shadow-outer rounded-full`}
           onClick={() => {
             setMilliseconds(0);
             props.setStartTimer(false);
